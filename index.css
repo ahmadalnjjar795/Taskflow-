@@ -1,0 +1,144 @@
+:root {
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body: 'Manrope', 'Segoe UI', sans-serif;
+  --font-body-ar: 'Cairo', 'Manrope', sans-serif;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  --ink-900: #14171c;
+  --ink-800: #1c2027;
+  --ink-700: #262b33;
+  --ink-600: #363c46;
+  --ink-400: #6b7280;
+  --ink-200: #d7dae0;
+  --ink-100: #eceef1;
+
+  --paper-0: #ffffff;
+  --paper-50: #f6f5f1;
+  --paper-100: #efece5;
+
+  --amber-500: #e2933a;
+  --amber-600: #c97a22;
+  --amber-100: #fbe8cf;
+
+  --teal-600: #1f6f5c;
+  --teal-500: #2c8a72;
+  --teal-100: #d9efe7;
+
+  --red-500: #d15a4a;
+  --red-100: #f8ddd7;
+
+  --blue-500: #4779a8;
+  --blue-100: #dde9f3;
+
+  --shadow-sm: 0 1px 2px rgba(20, 23, 28, 0.06), 0 1px 1px rgba(20, 23, 28, 0.04);
+  --shadow-md: 0 6px 20px rgba(20, 23, 28, 0.08), 0 2px 6px rgba(20, 23, 28, 0.05);
+  --shadow-lg: 0 16px 40px rgba(20, 23, 28, 0.14);
+
+  --bg: var(--paper-50);
+  --surface: var(--paper-0);
+  --surface-alt: var(--paper-100);
+  --border: var(--ink-100);
+  --text-primary: var(--ink-900);
+  --text-secondary: var(--ink-400);
+  --accent: var(--amber-500);
+  --accent-strong: var(--amber-600);
+}
+
+[data-theme='dark'] {
+  --bg: #0e1116;
+  --surface: #171b21;
+  --surface-alt: #1e232b;
+  --border: #2a303a;
+  --text-primary: #f2f1ec;
+  --text-secondary: #9aa1ac;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  overflow-x: hidden;
+}
+
+html[dir='rtl'] body {
+  font-family: var(--font-body-ar);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tf-fade-in {
+  animation: tfFadeIn 0.35s ease both;
+}
+@keyframes tfFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tf-pop {
+  animation: tfPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes tfPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
